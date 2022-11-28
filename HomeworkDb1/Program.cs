@@ -11,7 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 // builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<DataContext>(c =>
 {
-    c.UseNpgsql(builder.Configuration.GetConnectionString("ConnectionString"));
+    c.UseNpgsql(builder.Configuration.GetConnectionString("db"));
     c.UseSnakeCaseNamingConvention();
 });
 

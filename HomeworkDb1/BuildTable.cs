@@ -1,7 +1,6 @@
 ﻿using Bogus;
 using HomeworkDb1.Abstractions;
 using HomeworkDb1.Domain.Entity;
-using HomeworkDb1.Domain.Repos;
 
 namespace HomeworkDb1;
 
