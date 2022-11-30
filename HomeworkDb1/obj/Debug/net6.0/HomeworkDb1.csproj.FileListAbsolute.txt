@@ -32,3 +32,8 @@ D:\CsharpProjects\HomeworkDb1\HomeworkDb1\bin\Debug\net6.0\Npgsql.dll
 D:\CsharpProjects\HomeworkDb1\HomeworkDb1\bin\Debug\net6.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
 D:\CsharpProjects\HomeworkDb1\HomeworkDb1\obj\Debug\net6.0\HomeworkDb1.csproj.CopyComplete
 D:\CsharpProjects\HomeworkDb1\HomeworkDb1\bin\Debug\net6.0\Bogus.dll
+D:\CsharpProjects\HomeworkDb1\HomeworkDb1\bin\Debug\net6.0\Microsoft.OpenApi.dll
+D:\CsharpProjects\HomeworkDb1\HomeworkDb1\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\CsharpProjects\HomeworkDb1\HomeworkDb1\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\CsharpProjects\HomeworkDb1\HomeworkDb1\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\CsharpProjects\HomeworkDb1\HomeworkDb1\obj\Debug\net6.0\HomeworkDb1.MvcApplicationPartsAssemblyInfo.cs

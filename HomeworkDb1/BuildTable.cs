@@ -13,19 +13,19 @@ public class BuildTable : IBuildTable
         _studentRepository = studentRepository;
     }
     
-    public void FillTable()
+    public async Task FillTable()
     {
         var students = GenerateUsers(5);
         foreach (var student in students)
         {
-            _studentRepository.AddAsync(student);
+            await _studentRepository.AddAsync(student);
         }
     }
 
     private List<Student> GenerateUsers(int count)
     {
         var students = new List<Student>();
-        for (int i = 0; i < count; i++)
+        for (var i = 0; i < count; i++)
         {
             var student = new Student()
             {

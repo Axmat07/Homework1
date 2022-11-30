@@ -6,9 +6,8 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
-
 builder.Services.AddEndpointsApiExplorer();
-// builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<DataContext>(c =>
 {
     c.UseNpgsql(builder.Configuration.GetConnectionString("db"));
@@ -21,26 +20,22 @@ builder.Services.AddScoped<IBuildTable, BuildTable>();
 
 var app = builder.Build();
 
-app.MapGet("/", () => "Hello World!");
-
-
-
-//app.Run();
-
-// if (app.Environment.IsDevelopment())
-// {
-//     app.UseSwagger();
-//     app.UseSwaggerUI();
-// }
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-// app.MapControllers();
+app.MapControllers();
+
+app.Run();
 
 using (var scope = app.Services.CreateScope())
 {
     var buildTable = scope.ServiceProvider.GetRequiredService<IBuildTable>();
-    buildTable?.FillTable();
+    await buildTable.FillTable();
 }
