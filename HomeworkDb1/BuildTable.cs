@@ -66,7 +66,7 @@ public class BuildTable : IBuildTable
         var studentsToReturn = new List<Student>();
         for (int i = 0; i < countOfStudents; i++)
         {
-            var randomStudent = _faker.Random.Int(1, students.Count);
+            var randomStudent = _faker.Random.Int(0, students.Count-1);
             studentsToReturn.Add(students[randomStudent]);
             students.RemoveAt(randomStudent);
         }
@@ -81,7 +81,7 @@ public class BuildTable : IBuildTable
         var lectorsToReturn = new List<Lector>();
         for (int i = 0; i < countOfLectors; i++)
         {
-            var randomLector = _faker.Random.Int(1, lectors.Count);
+            var randomLector = _faker.Random.Int(0, lectors.Count-1);
             lectorsToReturn.Add(lectors[randomLector]);
             lectors.RemoveAt(randomLector);
         }
