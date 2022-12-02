@@ -32,10 +32,10 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.Run();
-
 using (var scope = app.Services.CreateScope())
 {
     var buildTable = scope.ServiceProvider.GetRequiredService<IBuildTable>();
     await buildTable.FillTable();
 }
+
+app.Run();

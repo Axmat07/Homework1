@@ -47,11 +47,12 @@ public class BuildTable : IBuildTable
         var courses = new List<Course>();
         for (int i = 0; i < count; i++)
         {
-            var course = new Course()
+            var course = new Course
             {
+                Name = _faker.Person.Company.Bs,
                 Id = Guid.NewGuid(),
                 Lectors = await GetRandomLector(),
-                StartDate = _faker.Date.Past(),
+                StartDate = _faker.Date.Past().ToUniversalTime(),
                 Students = await GetRandomStudents()
             };
             courses.Add(course);
