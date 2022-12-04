@@ -2,6 +2,7 @@ using HomeworkDb1;
 using HomeworkDb1.Abstractions;
 using HomeworkDb1.Domain;
 using HomeworkDb1.Domain.Repos;
+using HomeworkDb1.HomeworkTasks;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,7 +17,7 @@ builder.Services.AddDbContext<DataContext>(c =>
 
 builder.Services.AddScoped<DbContext, DataContext>();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
-builder.Services.AddScoped<IBuildTable, BuildTable>();
+builder.Services.AddScoped<IHomeworkDoingService, HomeworkDoingService>();
 
 var app = builder.Build();
 
@@ -34,8 +35,10 @@ app.MapControllers();
 
 using (var scope = app.Services.CreateScope())
 {
-    var buildTable = scope.ServiceProvider.GetRequiredService<IBuildTable>();
+    var buildTable = scope.ServiceProvider.GetRequiredService<IHomeworkDoingService>();
     await buildTable.FillTable();
+    await buildTable.PrintTables();
+    await buildTable.AddToTable();
 }
 
 app.Run();
